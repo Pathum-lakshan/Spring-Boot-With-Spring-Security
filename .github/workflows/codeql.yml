@@ -23,9 +23,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Java 20
-        uses: actions/setup-java@v2
-        with:
-          java-version: 20
+        run: |
+          # Download and configure Java 20
+          wget https://example.com/path/to/your/java20.tar.gz -O java20.tar.gz
+          tar -zxvf java20.tar.gz
+          export JAVA_HOME=$PWD/java20
+          export PATH=$JAVA_HOME/bin:$PATH
+        working-directory: $HOME
 
       - name: Build Spring Boot Application
         run: mvn clean install
