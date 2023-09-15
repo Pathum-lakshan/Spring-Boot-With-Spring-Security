@@ -22,15 +22,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set execute permissions for mvnw
-        run: |
-          chmod +x mvnw
-        working-directory: ./path/to/your/project  # Update with the correct path
-
       - name: Build Spring Boot Application
-        run: |
-          ./mvnw clean install
-        working-directory: ./path/to/your/project  # Update with the correct path
+        run: mvn clean install
+        working-directory: .
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
