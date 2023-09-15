@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Spring Boot Application
         run: mvn clean install
-        working-directory: .
+        working-directory: ./
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
