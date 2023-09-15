@@ -14,7 +14,7 @@
     <name>Spring-Boot-With-Spring-Security</name>
     <description>Spring-Boot-With-Spring-Security</description>
     <properties>
-        <java.version>20</java.version>
+        <java.version>11</java.version>
         <snakeyaml.version>2.0</snakeyaml.version>
     </properties>
     <dependencies>

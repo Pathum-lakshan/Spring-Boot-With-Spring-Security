@@ -22,14 +22,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Java 20
-        run: |
-          mkdir -p $HOME/java20
-          wget https://corretto.aws/downloads/latest/amazon-corretto-20-x64-linux-jdk.tar.gz -O $HOME/java20/java20.tar.gz
-          tar -zxvf $HOME/java20/java20.tar.gz -C $HOME/java20
-          export JAVA_HOME=$HOME/java20
-          export PATH=$JAVA_HOME/bin:$PATH
-          java -version
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11  # Set the Java version to 11
 
       - name: Build Spring Boot Application
         run: mvn clean install
