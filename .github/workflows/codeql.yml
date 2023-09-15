@@ -24,16 +24,12 @@ jobs:
 
       - name: Set up Java 20
         run: |
-          # Create a directory for Java 20
           mkdir -p $HOME/java20
-
-          # Download and extract Java 20
           wget https://example.com/path/to/your/java20.tar.gz -O $HOME/java20/java20.tar.gz
           tar -zxvf $HOME/java20/java20.tar.gz -C $HOME/java20
-
-          # Set JAVA_HOME and PATH
           export JAVA_HOME=$HOME/java20
           export PATH=$JAVA_HOME/bin:$PATH
+          java -version
         working-directory: $HOME
 
       - name: Build Spring Boot Application
