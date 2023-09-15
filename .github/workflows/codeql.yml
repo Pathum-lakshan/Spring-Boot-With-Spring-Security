@@ -25,7 +25,7 @@ jobs:
       - name: Set up Java 20
         run: |
           mkdir -p $HOME/java20
-          wget https://corretto.aws/downloads/latest/amazon-corretto-20-x64-linux-jdk.tar.gz
+          wget https://corretto.aws/downloads/latest/amazon-corretto-20-x64-linux-jdk.tar.gz -O $HOME/java20/java20.tar.gz
           tar -zxvf $HOME/java20/java20.tar.gz -C $HOME/java20
           export JAVA_HOME=$HOME/java20
           export PATH=$JAVA_HOME/bin:$PATH
