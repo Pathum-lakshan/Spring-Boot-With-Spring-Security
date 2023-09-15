@@ -26,6 +26,15 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: 11  # Set the Java version to 11
+          distribution: 'adopt'  # Specify the distribution (e.g., 'adopt', 'adopt-hotspot', etc.)
+          java-package: jdk
+          architecture: x64
+          check-latest: false
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+          overwrite-settings: true
+          job-status: success
 
       - name: Build Spring Boot Application
         run: mvn clean install
