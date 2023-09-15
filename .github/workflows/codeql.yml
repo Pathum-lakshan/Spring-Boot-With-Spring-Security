@@ -35,7 +35,6 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: java
-          queries: security-extended,security-and-quality,your-custom-query
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
