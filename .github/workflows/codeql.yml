@@ -30,7 +30,6 @@ jobs:
           export JAVA_HOME=$HOME/java20
           export PATH=$JAVA_HOME/bin:$PATH
           java -version
-        working-directory: $HOME
 
       - name: Build Spring Boot Application
         run: mvn clean install
