@@ -19,20 +19,26 @@ jobs:
       security-events: write
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Build Spring Boot Application
-      run: |
-        ./mvnw clean install
+      - name: Set execute permissions for mvnw
+        run: |
+          chmod +x mvnw
+        working-directory: ./path/to/your/project  # Update with the correct path
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: java
-        queries: security-extended,security-and-quality,your-custom-query
+      - name: Build Spring Boot Application
+        run: |
+          ./mvnw clean install
+        working-directory: ./path/to/your/project  # Update with the correct path
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-      with:
-        category: "/language:java"
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: java
+          queries: security-extended,security-and-quality,your-custom-query
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:java"
