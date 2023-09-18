@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.0.RELEASE</version>
+        <version>3.1.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.security</groupId>
@@ -14,7 +14,7 @@
     <name>Spring-Boot-With-Spring-Security</name>
     <description>Spring-Boot-With-Spring-Security</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <mysql.version>8.0.33</mysql.version>
         <jwt.version>0.11.5</jwt.version>
@@ -28,10 +28,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -63,7 +59,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Add the specific version of SnakeYAML that doesn't have the vulnerabilities -->
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
