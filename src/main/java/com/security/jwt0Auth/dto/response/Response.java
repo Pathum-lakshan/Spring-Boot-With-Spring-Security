@@ -16,12 +16,12 @@ public class Response<T> {
     private Integer status;
     private String message;
     private String description;
-    private T t;
+    private T object;
 
-    public Response(HttpStatus httpStatus, String description, T t) {
+    public Response(HttpStatus httpStatus, String description, T object) {
         this.status = httpStatus.value();
         this.message = httpStatus.getReasonPhrase();
         this.description = description;
-        this.t = t;
+        this.object = object;
     }
 }

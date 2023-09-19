@@ -11,5 +11,6 @@ import com.security.jwt0Auth.persistence.dto.admin.User;
 
 public interface UserService {
     Response<User> findByUsername(String username);
+
     Response<User> save(com.security.jwt0Auth.dto.requests.user.User user);
 }

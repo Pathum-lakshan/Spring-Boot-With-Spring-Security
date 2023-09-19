@@ -12,5 +12,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class User {
-    private String username,password;
+    private String username, password;
 }
