@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.0.RELEASE</version>
+        <version>3.1.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.security</groupId>
@@ -14,10 +14,12 @@
     <name>Spring-Boot-With-Spring-Security</name>
     <description>Spring-Boot-With-Spring-Security</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <mysql.version>8.0.33</mysql.version>
         <jwt.version>0.11.5</jwt.version>
+        <modelmapper.version>3.1.1</modelmapper.version>
+        <security-crypto.version>6.1.3</security-crypto.version>
 
     </properties>
     <dependencies>
@@ -28,10 +30,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -63,7 +61,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Add the specific version of SnakeYAML that doesn't have the vulnerabilities -->
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
@@ -91,6 +88,22 @@
             <version>${jwt.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version> <!-- Use the latest version available -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>${security-crypto.version}</version> <!-- need remove after using spring security -->
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
