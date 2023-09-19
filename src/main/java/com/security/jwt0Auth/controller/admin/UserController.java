@@ -18,6 +18,6 @@ public interface UserController {
 
     @PostMapping
     @ResponseBody
-    Response<User> save(@RequestBody User user);
+    Response<User> save(@RequestBody com.security.jwt0Auth.dto.requests.user.User user);
 
 }

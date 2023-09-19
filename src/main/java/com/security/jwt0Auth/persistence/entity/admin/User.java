@@ -22,7 +22,7 @@ public class User extends SuperEntity {
     @Column(name = "username", length = 150, nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password", length = 16, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
 }

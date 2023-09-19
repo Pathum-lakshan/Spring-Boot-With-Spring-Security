@@ -2,6 +2,7 @@ package com.security.jwt0Auth.persistence.repository;
 
 import com.security.jwt0Auth.persistence.entity.admin.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -13,8 +14,8 @@ import java.util.Optional;
  */
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Long> {
+public interface UserRepo extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 
-    Optional<User> findByUsernameIgnoreCase(String username);
+    Optional<User> findByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
 
 }

@@ -29,7 +29,7 @@ public abstract class SuperEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime updatedAt;
 
-    @Column(name = "delete", nullable = false)
-    private Boolean delete = Boolean.FALSE;
+    @Column(name = "is_deleted", nullable = false)
+    private Boolean isDeleted = Boolean.FALSE;
 
 }

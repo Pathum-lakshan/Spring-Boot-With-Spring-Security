@@ -14,5 +14,4 @@ import lombok.Setter;
 @Getter
 public class User extends SuperDTO {
     private String username;
-    private String password;
 }

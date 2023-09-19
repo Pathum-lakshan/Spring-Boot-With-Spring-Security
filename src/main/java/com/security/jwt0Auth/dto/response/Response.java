@@ -2,6 +2,7 @@ package com.security.jwt0Auth.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.http.HttpStatus;
 
 /**
  * @Author : Pathum Lakshan
@@ -16,4 +17,11 @@ public class Response<T> {
     private String message;
     private String description;
     private T t;
+
+    public Response(HttpStatus httpStatus, String description, T t) {
+        this.status = httpStatus.value();
+        this.message = httpStatus.getReasonPhrase();
+        this.description = description;
+        this.t = t;
+    }
 }
