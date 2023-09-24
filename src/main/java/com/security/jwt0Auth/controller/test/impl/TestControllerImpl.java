@@ -2,6 +2,7 @@ package com.security.jwt0Auth.controller.test.impl;
 
 import com.security.jwt0Auth.controller.test.TestController;
 import com.security.jwt0Auth.service.test.TestService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("test")
+@RequiredArgsConstructor
 public class TestControllerImpl implements TestController {
 
-    @Autowired
-    private TestService testService;
+    private final TestService testService;
 
     @Override
     public String test() {

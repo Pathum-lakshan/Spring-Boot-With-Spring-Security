@@ -22,7 +22,6 @@ public class UserControllerImpl implements UserController {
 
     private final UserService userService;
 
-
     @Override
     public Response<User> findByUsername(String username) {
         return userService.findByUsername(username);

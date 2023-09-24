@@ -3,6 +3,7 @@ package com.security.jwt0Auth.config;
 import com.security.jwt0Auth.persistence.repository.admin.UserRepo;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +23,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @Date : 2023-09-19 7:16 AM
  */
 @org.springframework.context.annotation.Configuration
+@RequiredArgsConstructor
 public class Configuration {
 
     private final UserRepo userRepo;
-
-    @Autowired
-    public Configuration(UserRepo userRepo) {
-        this.userRepo = userRepo;
-    }
 
     @Bean
     public ModelMapper modelMapper() {
