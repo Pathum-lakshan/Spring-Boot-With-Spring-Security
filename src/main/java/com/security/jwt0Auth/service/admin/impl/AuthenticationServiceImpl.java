@@ -31,7 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
         com.security.jwt0Auth.persistence.entity.admin.User userDao =
-                userRepo.findByUsernameIgnoreCaseAndIsDeletedIsFalseAndActiveIsTrue(user.getUsername()).orElseThrow(() -> new BadCredentialsException("User Not Found"));
+                userRepo.findByUsernameIgnoreCaseAndDeleteIsFalseAndActiveIsTrue(user.getUsername()).orElseThrow(() -> new BadCredentialsException("User Not Found"));
         String token = jwtService.generateToken(null, userDao);
 
         return new Response<>(HttpStatus.OK, "Authorized", Authenticate.builder().token(token).build());

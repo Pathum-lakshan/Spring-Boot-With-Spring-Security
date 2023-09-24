@@ -52,7 +52,7 @@ public class Configuration {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> userRepo.findByUsernameIgnoreCaseAndIsDeletedIsFalse(username).
+        return username -> userRepo.findByUsernameIgnoreCaseAndDeleteIsFalse(username).
                 orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
     }
 

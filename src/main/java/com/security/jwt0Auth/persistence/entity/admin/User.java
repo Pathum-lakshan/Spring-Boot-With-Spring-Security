@@ -45,7 +45,7 @@ public class User extends SuperEntity implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return !getIsDeleted();
+        return !getDelete();
     }
 
     @Override
