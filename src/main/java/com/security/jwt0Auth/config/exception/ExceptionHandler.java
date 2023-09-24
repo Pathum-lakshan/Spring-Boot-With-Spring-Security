@@ -1,6 +1,7 @@
 package com.security.jwt0Auth.config.exception;
 
 import com.security.jwt0Auth.dto.response.error.Error;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -19,27 +20,29 @@ import java.time.LocalDateTime;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
+@Slf4j
 public class ExceptionHandler extends ResponseEntityExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(java.lang.Exception.class)
     public ResponseEntity<Error> handleGlobalException(java.lang.Exception ex, WebRequest request) {
-        Error apiError = new Error(
+        LOGG.error(ex.getMessage(), ex);
+        Error error = new Error(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 ex.getMessage(),
                 request.getDescription(false),
                 LocalDateTime.now()
         );
-        return new ResponseEntity<>(apiError, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(ServiceException.class)
     public ResponseEntity<Error> handleServiceException(ServiceException ex, WebRequest request) {
-        Error apiError = new Error(
+        Error error = new Error(
                 ex.getHttpStatus(),
                 ex.getMessage(),
                 request.getDescription(false),
                 LocalDateTime.now()
         );
-        return new ResponseEntity<>(apiError, ex.getHttpStatus());
+        return new ResponseEntity<>(error, ex.getHttpStatus());
     }
 
 }
