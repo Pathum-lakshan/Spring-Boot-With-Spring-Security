@@ -22,10 +22,10 @@ CREATE TABLE IF NOT EXISTS `springSecurity`.`user`
 (
     `id`         INT          NOT NULL AUTO_INCREMENT,
     `username`   VARCHAR(150) NOT NULL,
-    `password`   VARCHAR(16)  NOT NULL,
+    `password`   TEXT         NOT NULL,
     `created_at` DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `delete`     TINYINT(1)   NOT NULL DEFAULT 1,
+    `delete`     TINYINT(1)   NOT NULL DEFAULT 0,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE

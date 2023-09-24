@@ -22,24 +22,24 @@ import java.time.LocalDateTime;
 public class ExceptionHandler extends ResponseEntityExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(java.lang.Exception.class)
     public ResponseEntity<Error> handleGlobalException(java.lang.Exception ex, WebRequest request) {
-        Error apiError = new Error(
+        Error error = new Error(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 ex.getMessage(),
                 request.getDescription(false),
                 LocalDateTime.now()
         );
-        return new ResponseEntity<>(apiError, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(ServiceException.class)
     public ResponseEntity<Error> handleServiceException(ServiceException ex, WebRequest request) {
-        Error apiError = new Error(
+        Error error = new Error(
                 ex.getHttpStatus(),
                 ex.getMessage(),
                 request.getDescription(false),
                 LocalDateTime.now()
         );
-        return new ResponseEntity<>(apiError, ex.getHttpStatus());
+        return new ResponseEntity<>(error, ex.getHttpStatus());
     }
 
 }

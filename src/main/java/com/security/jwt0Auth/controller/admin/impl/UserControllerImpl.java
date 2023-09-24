@@ -1,6 +1,7 @@
 package com.security.jwt0Auth.controller.admin.impl;
 
 import com.security.jwt0Auth.controller.admin.UserController;
+import com.security.jwt0Auth.dto.requests.user.ChangePassword;
 import com.security.jwt0Auth.dto.response.Response;
 import com.security.jwt0Auth.persistence.dto.admin.User;
 import com.security.jwt0Auth.service.admin.UserService;
@@ -25,15 +26,18 @@ public class UserControllerImpl implements UserController {
         this.userService = userService;
     }
 
-    //    @ApiOperation("Get a User by username")
     @Override
     public Response<User> findByUsername(String username) {
         return userService.findByUsername(username);
     }
 
-    //    @ApiOperation("Save User")
     @Override
     public Response<User> save(com.security.jwt0Auth.dto.requests.user.User user) {
         return userService.save(user);
+    }
+
+    @Override
+    public Response<Boolean> password(ChangePassword changePassword) {
+        return userService.password(changePassword);
     }
 }

@@ -18,4 +18,7 @@ public interface UserRepo extends JpaRepository<User, Long>, JpaSpecificationExe
 
     Optional<User> findByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
 
+    Optional<User> findByIdAndIsDeletedIsFalse(Long id);
+
+    boolean existsByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
 }
