@@ -1,8 +1,8 @@
 package com.security.jwt0Auth.controller.admin;
 
 import com.security.jwt0Auth.dto.response.Response;
-import com.security.jwt0Auth.persistence.dto.admin.Role;
 import com.security.jwt0Auth.persistence.admin.Type;
+import com.security.jwt0Auth.persistence.dto.admin.Role;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

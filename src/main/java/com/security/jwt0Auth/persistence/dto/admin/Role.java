@@ -1,7 +1,7 @@
 package com.security.jwt0Auth.persistence.dto.admin;
 
-import com.security.jwt0Auth.persistence.dto.SuperDTO;
 import com.security.jwt0Auth.persistence.admin.Type;
+import com.security.jwt0Auth.persistence.dto.SuperDTO;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -19,6 +19,7 @@
         <mysql.version>8.0.33</mysql.version>
         <jwt.version>0.11.5</jwt.version>
         <modelmapper.version>3.1.1</modelmapper.version>
+        <gson.version>2.10.1</gson.version>
     </properties>
     <dependencies>
         <dependency>
@@ -99,6 +100,11 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
         </dependency>
 
     </dependencies>

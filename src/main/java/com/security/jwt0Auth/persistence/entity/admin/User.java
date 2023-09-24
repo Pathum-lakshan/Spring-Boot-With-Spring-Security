@@ -41,7 +41,7 @@ public class User extends SuperEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (auths==null || auths.isEmpty())return new ArrayList<>();
+        if (auths == null || auths.isEmpty()) return new ArrayList<>();
         return auths.stream().map(auth -> new SimpleGrantedAuthority(auth.getRole().getType().name())).collect(Collectors.toList());
     }
 

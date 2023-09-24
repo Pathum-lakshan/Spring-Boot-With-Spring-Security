@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -36,11 +37,13 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @Transactional
     @Override
     public Response<User> findByUsername(String username) {
         return responseMapper(userMapper(findUserByUsername(username)), HttpStatus.OK, "Successfully Find User");
     }
 
+    @Transactional
     @Override
     public Response<User> save(com.security.jwt0Auth.dto.requests.admin.User user) {
         isExistsUser(user.getUsername());
@@ -55,6 +58,7 @@ public class UserServiceImpl implements UserService {
         return responseMapper(userMapper(userEntity), HttpStatus.CREATED, "Successfully Created User");
     }
 
+    @Transactional
     @Override
     public Response<Boolean> password(ChangePassword changePassword) {
         com.security.jwt0Auth.persistence.entity.admin.User user = findUserById(changePassword.getId());

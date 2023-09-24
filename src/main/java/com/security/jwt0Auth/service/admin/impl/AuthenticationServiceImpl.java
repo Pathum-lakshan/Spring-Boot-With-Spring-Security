@@ -12,6 +12,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 
@@ -29,6 +30,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final JwtService jwtService;
 
     @Override
+    @Transactional
     public Response<Authenticate> authenticate(User user) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
