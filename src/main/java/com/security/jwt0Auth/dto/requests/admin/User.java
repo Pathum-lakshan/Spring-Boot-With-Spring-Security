@@ -1,4 +1,4 @@
-package com.security.jwt0Auth.dto.requests.user;
+package com.security.jwt0Auth.dto.requests.admin;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.security.jwt0Auth.controller.admin;
 
-import com.security.jwt0Auth.dto.requests.user.ChangePassword;
+import com.security.jwt0Auth.dto.requests.admin.ChangePassword;
 import com.security.jwt0Auth.dto.response.Response;
 import com.security.jwt0Auth.persistence.dto.admin.User;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public interface UserController {
 
     @PostMapping
     @ResponseBody
-    Response<User> save(@RequestBody com.security.jwt0Auth.dto.requests.user.User user);
+    Response<User> save(@RequestBody com.security.jwt0Auth.dto.requests.admin.User user);
 
     @PutMapping("password")
     @ResponseBody

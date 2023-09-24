@@ -1,4 +1,4 @@
-package com.security.jwt0Auth.persistence.repository;
+package com.security.jwt0Auth.persistence.repository.admin;
 
 import com.security.jwt0Auth.persistence.entity.admin.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,8 +15,10 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
+    long countByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
 
     Optional<User> findByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
+    Optional<User> findByUsernameIgnoreCaseAndIsDeletedIsFalseAndActiveIsTrue(String username);
 
     Optional<User> findByIdAndIsDeletedIsFalse(Long id);
 

@@ -1,6 +1,6 @@
 package com.security.jwt0Auth.service.admin;
 
-import com.security.jwt0Auth.dto.requests.user.ChangePassword;
+import com.security.jwt0Auth.dto.requests.admin.ChangePassword;
 import com.security.jwt0Auth.dto.response.Response;
 import com.security.jwt0Auth.persistence.dto.admin.User;
 
@@ -13,7 +13,7 @@ import com.security.jwt0Auth.persistence.dto.admin.User;
 public interface UserService {
     Response<User> findByUsername(String username);
 
-    Response<User> save(com.security.jwt0Auth.dto.requests.user.User user);
+    Response<User> save(com.security.jwt0Auth.dto.requests.admin.User user);
 
     Response<Boolean> password(ChangePassword changePassword);
 }

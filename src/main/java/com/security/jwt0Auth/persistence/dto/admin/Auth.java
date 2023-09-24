@@ -7,12 +7,13 @@ import lombok.Setter;
 /**
  * @Author : Pathum Lakshan
  * @Project : Spring-Boot-With-Spring-Security
- * @Date : 2023-09-18 10:45 PM
+ * @Date : 2023-09-24 11:53 AM
  */
 
 @Setter
 @Getter
-public class User extends SuperDTO {
-    private String username;
-    private Boolean active;
+public class Auth extends SuperDTO {
+    private Long user;
+    private Long role;
+
 }
