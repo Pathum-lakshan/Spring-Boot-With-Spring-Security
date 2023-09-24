@@ -44,7 +44,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             final String jwt;
             final String userName;
             if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-                throw new ServiceException("Missing or Invalid Token", HttpStatus.UNAUTHORIZED);
+                filterChain.doFilter(request, response);
+                return;
             }
             jwt = authHeader.substring(7);
             userName = jwtService.extractUserName(jwt);
