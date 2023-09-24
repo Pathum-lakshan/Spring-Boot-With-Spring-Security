@@ -3,11 +3,9 @@ package com.security.jwt0Auth.controller.admin.impl;
 import com.security.jwt0Auth.controller.admin.RoleController;
 import com.security.jwt0Auth.dto.response.Response;
 import com.security.jwt0Auth.persistence.dto.admin.Role;
-import com.security.jwt0Auth.persistence.entity.enums.admin.Type;
+import com.security.jwt0Auth.persistence.admin.Type;
 import com.security.jwt0Auth.service.admin.RoleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

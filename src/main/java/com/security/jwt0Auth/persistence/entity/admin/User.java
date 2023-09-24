@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,17 +36,18 @@ public class User extends SuperEntity implements UserDetails {
     @Column(name = "active", nullable = false)
     private Boolean active = Boolean.FALSE;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Auth> auths;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (auths==null || auths.isEmpty())return new ArrayList<>();
         return auths.stream().map(auth -> new SimpleGrantedAuthority(auth.getRole().getType().name())).collect(Collectors.toList());
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return !getDelete();
+        return !getIsDeleted();
     }
 
     @Override

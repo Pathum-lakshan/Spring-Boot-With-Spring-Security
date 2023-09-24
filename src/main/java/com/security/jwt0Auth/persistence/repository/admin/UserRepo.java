@@ -15,12 +15,12 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
-    long countByUsernameIgnoreCaseAndDeleteIsFalse(String username);
+    long countByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
 
-    Optional<User> findByUsernameIgnoreCaseAndDeleteIsFalse(String username);
-    Optional<User> findByUsernameIgnoreCaseAndDeleteIsFalseAndActiveIsTrue(String username);
+    Optional<User> findByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
+    Optional<User> findByUsernameIgnoreCaseAndIsDeletedIsFalseAndActiveIsTrue(String username);
 
-    Optional<User> findByIdAndDeleteIsFalse(Long id);
+    Optional<User> findByIdAndIsDeletedIsFalse(Long id);
 
-    boolean existsByUsernameIgnoreCaseAndDeleteIsFalse(String username);
+    boolean existsByUsernameIgnoreCaseAndIsDeletedIsFalse(String username);
 }

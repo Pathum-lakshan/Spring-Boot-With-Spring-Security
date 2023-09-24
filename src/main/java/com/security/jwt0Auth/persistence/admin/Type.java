@@ -1,4 +1,4 @@
-package com.security.jwt0Auth.persistence.entity.enums.admin;
+package com.security.jwt0Auth.persistence.admin;
 
 /**
  * @Author : Pathum Lakshan

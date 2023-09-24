@@ -2,7 +2,7 @@ package com.security.jwt0Auth.service.admin.impl;
 
 import com.security.jwt0Auth.dto.response.Response;
 import com.security.jwt0Auth.persistence.dto.admin.Role;
-import com.security.jwt0Auth.persistence.entity.enums.admin.Type;
+import com.security.jwt0Auth.persistence.admin.Type;
 import com.security.jwt0Auth.service.admin.RoleService;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.security.jwt0Auth.persistence.entity.admin;
 
 import com.security.jwt0Auth.persistence.entity.SuperEntity;
-import com.security.jwt0Auth.persistence.entity.enums.admin.Type;
+import com.security.jwt0Auth.persistence.admin.Type;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

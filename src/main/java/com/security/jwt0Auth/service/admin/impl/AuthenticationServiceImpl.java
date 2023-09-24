@@ -13,6 +13,8 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 /**
  * @Author : Pathum Lakshan
  * @Project : Spring-Boot-With-Spring-Security
@@ -31,8 +33,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
         com.security.jwt0Auth.persistence.entity.admin.User userDao =
-                userRepo.findByUsernameIgnoreCaseAndDeleteIsFalseAndActiveIsTrue(user.getUsername()).orElseThrow(() -> new BadCredentialsException("User Not Found"));
-        String token = jwtService.generateToken(null, userDao);
+                userRepo.findByUsernameIgnoreCaseAndIsDeletedIsFalseAndActiveIsTrue(user.getUsername()).orElseThrow(() -> new BadCredentialsException("User Not Found"));
+        String token = jwtService.generateToken(new HashMap<>(), userDao);
 
         return new Response<>(HttpStatus.OK, "Authorized", Authenticate.builder().token(token).build());
     }

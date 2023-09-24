@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
     private void isExistsUser(String username) {
         if (Strings.isNullOrEmpty(username))
             throw new ServiceException("Username Is Empty", HttpStatus.PRECONDITION_FAILED);
-        else if (userRepo.existsByUsernameIgnoreCaseAndDeleteIsFalse(username)) {
+        else if (userRepo.existsByUsernameIgnoreCaseAndIsDeletedIsFalse(username)) {
             throw new ServiceException("User Is Exists", HttpStatus.PRECONDITION_FAILED);
         }
     }
@@ -100,12 +100,12 @@ public class UserServiceImpl implements UserService {
     }
 
     private com.security.jwt0Auth.persistence.entity.admin.User findUserById(Long id) {
-        return userRepo.findByIdAndDeleteIsFalse(id)
+        return userRepo.findByIdAndIsDeletedIsFalse(id)
                 .orElseThrow(() -> new ServiceException("User Not Found", HttpStatus.NOT_FOUND));
     }
 
     private com.security.jwt0Auth.persistence.entity.admin.User findUserByUsername(String username) {
-        return userRepo.findByUsernameIgnoreCaseAndDeleteIsFalse(username)
+        return userRepo.findByUsernameIgnoreCaseAndIsDeletedIsFalse(username)
                 .orElseThrow(() -> new ServiceException("User Not Found", HttpStatus.NOT_FOUND));
     }
 
