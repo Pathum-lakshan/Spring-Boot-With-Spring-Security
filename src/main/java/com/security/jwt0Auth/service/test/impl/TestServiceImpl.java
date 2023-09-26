@@ -1,6 +1,10 @@
 package com.security.jwt0Auth.service.test.impl;
 
 import com.security.jwt0Auth.service.test.TestService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,10 +14,19 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
+@RequiredArgsConstructor
 public class TestServiceImpl implements TestService {
+
+    private final JavaMailSender javaMailSender;
 
     @Override
     public String test() {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo("lakshanherath1101@gmail.com");
+        message.setSubject("Test Email");
+        message.setText("This is a test email sent from Spring Boot.");
+
+        javaMailSender.send(message);
         return "OK";
     }
 

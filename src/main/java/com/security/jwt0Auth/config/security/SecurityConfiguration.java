@@ -13,12 +13,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * @Author : Pathum Lakshan
- * @Project : Spring-Boot-With-Spring-Security
- * @Date : 2023-09-24 2:17 PM
- */
-
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -33,14 +27,13 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.requestMatchers("/auth/**",
                                 "/swagger-ui/**", "/swagger-ui.html", "/swagger-ui.html",
-                                "/swagger-ui/**", "/api/v3/api-docs/**", "/actuator/health", "/user")
+                                "/swagger-ui/**", "/api/v3/api-docs/**", "/actuator/health")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-
         return http.build();
     }
 }
