@@ -1,15 +1,10 @@
 package com.security.jwt0Auth.config;
 
 import com.security.jwt0Auth.persistence.repository.admin.UserRepo;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
-import org.springdoc.core.configuration.SpringDocConfiguration;
-import org.springdoc.core.utils.SpringDocUtils;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -28,7 +23,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @org.springframework.context.annotation.Configuration
 @RequiredArgsConstructor
 @EnableWebMvc
-@Import(SpringDocConfiguration.class)
 public class Configuration {
 
     private final UserRepo userRepo;
@@ -41,14 +35,6 @@ public class Configuration {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public OpenAPI usersMicroserviceOpenAPI() {
-        return new OpenAPI()
-                .info(new Info().title("Spring Boot Security Api Documentation ")
-                        .description("spring security with jwt")
-                        .version("1.0"));
     }
 
     @Bean

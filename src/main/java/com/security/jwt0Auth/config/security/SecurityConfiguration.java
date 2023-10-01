@@ -25,13 +25,14 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(request -> request.requestMatchers("/auth/**",
-                                "/swagger-ui/**", "/swagger-ui.html", "/swagger-ui.html",
-                                "/swagger-ui/**", "/api/v3/api-docs/**", "/health",
-                                "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**","/swagger-ui/index.html")
+                .authorizeHttpRequests(request -> request
+                        .requestMatchers("/auth/**", "/swagger-ui/**", "/swagger-ui.html/**", "/swagger-ui.html", "/swagger-ui.html",
+                                "/swagger-ui/**", "/api/v3/api-docs/**", "/health", "/swagger-ui.html",
+                                "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui/index.html")
                         .permitAll()
                         .anyRequest()
-                        .authenticated())
+                        .authenticated()
+                )
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
