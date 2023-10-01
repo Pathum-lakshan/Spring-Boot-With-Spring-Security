@@ -5,7 +5,7 @@ import com.security.jwt0Auth.dto.response.Response;
 import com.security.jwt0Auth.dto.response.admin.Authenticate;
 import com.security.jwt0Auth.persistence.repository.admin.UserRepo;
 import com.security.jwt0Auth.service.admin.AuthenticationService;
-import com.security.jwt0Auth.service.security.JwtService;
+import com.security.jwt0Auth.service.setup.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;

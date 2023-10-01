@@ -6,7 +6,10 @@ import io.swagger.v3.oas.models.info.Info;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
+import org.springdoc.core.configuration.SpringDocConfiguration;
+import org.springdoc.core.utils.SpringDocUtils;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -15,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * @Author : Pathum Lakshan
@@ -23,6 +27,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @org.springframework.context.annotation.Configuration
 @RequiredArgsConstructor
+@EnableWebMvc
+@Import(SpringDocConfiguration.class)
 public class Configuration {
 
     private final UserRepo userRepo;
