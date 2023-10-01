@@ -1,8 +1,6 @@
 package com.security.jwt0Auth.config;
 
 import com.security.jwt0Auth.persistence.repository.admin.UserRepo;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
@@ -15,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * @Author : Pathum Lakshan
@@ -23,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @org.springframework.context.annotation.Configuration
 @RequiredArgsConstructor
+@EnableWebMvc
 public class Configuration {
 
     private final UserRepo userRepo;
@@ -35,14 +35,6 @@ public class Configuration {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public OpenAPI usersMicroserviceOpenAPI() {
-        return new OpenAPI()
-                .info(new Info().title("Spring Boot Security Api Documentation ")
-                        .description("spring security with jwt")
-                        .version("1.0"));
     }
 
     @Bean

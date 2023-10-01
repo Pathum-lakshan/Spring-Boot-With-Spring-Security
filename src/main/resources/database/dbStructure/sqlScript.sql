@@ -8,10 +8,6 @@ SET @OLD_SQL_MODE = @@SQL_MODE, SQL_MODE =
 -- -----------------------------------------------------
 -- Schema springSecurity
 -- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema springSecurity
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `springSecurity` DEFAULT CHARACTER SET utf8;
 USE `springSecurity`;
 

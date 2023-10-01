@@ -7,8 +7,11 @@ import com.security.jwt0Auth.dto.response.Response;
 import com.security.jwt0Auth.persistence.dto.admin.User;
 import com.security.jwt0Auth.persistence.repository.admin.UserRepo;
 import com.security.jwt0Auth.service.admin.UserService;
+import com.security.jwt0Auth.service.setup.cache.CacheManagerService;
+import com.security.jwt0Auth.util.contant.Constant;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,21 +27,18 @@ import java.util.Objects;
  */
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final ModelMapper mapper;
     private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
+    private final CacheManagerService cacheManagerService;
 
-    @Autowired
-    public UserServiceImpl(UserRepo userRepo, ModelMapper mapper, PasswordEncoder passwordEncoder) {
-        this.userRepo = userRepo;
-        this.mapper = mapper;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Transactional
     @Override
+    @Cacheable(value = Constant.CacheName.CACHE_FIND_USER_DATA, key = "#username")
     public Response<User> findByUsername(String username) {
         return responseMapper(userMapper(findUserByUsername(username)), HttpStatus.OK, "Successfully Find User");
     }
@@ -66,6 +66,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(changePassword.getNewPassword()));
         user.setUpdatedAt(LocalDateTime.now());
         userRepo.save(user);
+        cacheManagerService.clearCache(Constant.CacheName.CACHE_FIND_USER_DATA, user.getUsername());
         return responseMapper(Boolean.TRUE, HttpStatus.CREATED, "Successfully Change Password");
     }
 

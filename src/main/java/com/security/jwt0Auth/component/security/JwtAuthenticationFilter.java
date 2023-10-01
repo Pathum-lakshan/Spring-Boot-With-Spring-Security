@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.security.jwt0Auth.component.gson.LocalDateTimeAdapter;
 import com.security.jwt0Auth.config.exception.ServiceException;
 import com.security.jwt0Auth.dto.response.error.Error;
-import com.security.jwt0Auth.service.security.JwtService;
+import com.security.jwt0Auth.service.setup.security.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,6 +1,6 @@
-package com.security.jwt0Auth.service.security.impl;
+package com.security.jwt0Auth.service.setup.security.impl;
 
-import com.security.jwt0Auth.service.security.JwtService;
+import com.security.jwt0Auth.service.setup.security.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -2,7 +2,6 @@ package com.security.jwt0Auth.service.test.impl;
 
 import com.security.jwt0Auth.service.test.TestService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
