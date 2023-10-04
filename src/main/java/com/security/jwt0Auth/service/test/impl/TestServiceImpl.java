@@ -23,7 +23,7 @@ public class TestServiceImpl implements TestService {
         emailService.send("Pathumlakshanherath@gmail.com", "Pathumlakshanherath@gmail.com",
                 new String[]{"lakshanherath1101@gmail.com"}, new String[]{"pathuml@lassana.com", "sldarkgamersyt@gmail.com"}, null,
                 "TEST EMAIL", "This is a test email sent from Spring Boot.");
-        return "TEST API OK WITH SENDED EMAIL";
+        return "TEST API OK WITH SENDED EMAIL ";
     }
 
 }
